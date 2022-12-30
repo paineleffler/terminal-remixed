@@ -1,0 +1,93 @@
+.page-container {
+  min-height: 100vh;
+  background: var(--terminal-background);
+  color: var(--terminal-color);
+}
+
+.page-container::selection {
+  background-color:  var(--terminal-cursor);
+  color:  var(--terminal-color);
+}
+
+.terminal-container {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 1rem;
+  font-size: 1rem;
+}
+
+.line-container {
+  word-break: break-all;
+}
+
+.arrow {
+  font-weight: 600;
+}
+.arrow::after {
+  content: ' ';
+  white-space: pre;
+}
+.arrow[data-success="true"] {
+  color: var(--terminal-success);
+}
+.arrow[data-success="false"] {
+  color: var(--terminal-error);
+}
+
+.current-directory {
+  color: var(--terminal-directory);
+  font-weight: 600;
+}
+.current-directory::after {
+  content: ' ';
+  white-space: pre;
+}
+
+.git {
+  color: var(--terminal-secondary);
+  font-weight: 600;
+}
+.git::after {
+  content: ' ';
+  white-space: pre;
+}
+
+.branch {
+  color: var(--terminal-error);
+}
+
+.x {
+  color: var(--terminal-tertiary);
+}
+.x::after {
+  content: ' ';
+  white-space: pre;
+}
+
+.command {
+  word-break: break-all;
+  white-space: normal;
+  caret-color: transparent;
+}
+.command:focus {
+  outline: none;
+}
+
+@-webkit-keyframes blink {
+  0% { opacity: 1.0; }
+  50% { opacity: 0.0; }
+  100% { opacity: 1.0; }
+}
+@keyframes blink {
+  0% { opacity: 1.0; }
+  50% { opacity: 0.0; }
+  100% { opacity: 1.0; }
+}
+.cursor {
+  content: "";
+  color: var(--terminal-cursor);
+  -webkit-animation: blink 1s step-end infinite;
+  animation: blink 1s step-end infinite;
+  vertical-align: top;
+}

@@ -1,0 +1,35 @@
+:root {
+  --terminal-background: #000000;
+  --terminal-color: #f5f5f7;
+  --terminal-error: #FD6F6B;
+  --terminal-success: #67F86F;
+  --terminal-secondary: #6A76FB;
+  --terminal-tertiary: #FFFA72;
+  --terminal-cursor: #C839C5;
+  --terminal-directory: #68FDFE;
+}
+
+@font-face {
+  font-family: 'Menlo Regular';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Menlo Regular'), url('styles/fonts/Menlo-Regular.woff') format('woff');
+}
+
+html {
+  font-size: 100%;
+}
+
+body {
+  color: var(--terminal-color);
+  background-color: var(--terminal-background);
+  margin: 0;
+  font-weight: 300;
+  font-family: Menlo Regular, DejaVu Sans Mono, Consolas, Lucida Console, monospace;
+}
+
+@media screen and (min-width: 1200px) {
+  html {
+    font-size: 16px;
+  }
+}
