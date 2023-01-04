@@ -1,13 +1,16 @@
 import React, { useContext, useEffect, useRef } from 'react'
 import PropTypes from 'prop-types'
+import { useFetcher } from "@remix-run/react";
 
 import {TerminalContext} from './TerminalContextProvider'
 import Prefix from './Prefix'
 import { StringMatching } from '../lib/StringMatching'
+import TextMessage from '../lib/TextMessage'
 
 export default function Command (props) {
   const { success, type, branch, currentDirectory, changes } = props
   const {history, setHistory} = useContext(TerminalContext);
+  const fetcher = useFetcher();
 
   const commandInput = useRef(null)
 
@@ -34,12 +37,12 @@ export default function Command (props) {
     if (typeof StringMatching[command] === 'string') {
       return StringMatching[command]
     } else if (/^node text.js/.test(command)) {
-      return `Not available yet. Feature is currently being remixed.`
+      return TextMessage(command, fetcher)
     } else {
       return `zsh: command not found: ${command}`
     }
   }
-
+  
   function clickHandler () {
     commandInput.current.focus()
   }
